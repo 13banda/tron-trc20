@@ -1,4 +1,4 @@
-pragma solidity ^0.4.20;
+pragma solidity >=0.4.0 <0.7.0;
 
 
 contract TRC20 {
@@ -28,8 +28,8 @@ contract TRC20 {
      * Initializes contract with initial supply tokens to the creator of the contract
      */
     uint256 initialSupply = 1000000;
-    string tokenName = 'CodeXpertToken';
-    string tokenSymbol = 'CDX';
+    string tokenName = 'TacToken';
+    string tokenSymbol = 'TAC';
     constructor() public {
 
         totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
@@ -43,7 +43,6 @@ contract TRC20 {
      */
     function _transfer(address _from, address _to, uint _value) internal {
         // Prevent transfer to 0x0 address. Use burn() instead
-        require(_to != 0x0);
         // Check if the sender has enough
         require(balanceOf[_from] >= _value);
         // Check for overflows
